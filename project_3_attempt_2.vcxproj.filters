@@ -30,6 +30,9 @@
     <ClCompile Include="decryptedMessageBackward.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="showDecryptPossibilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="encryptMessage.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="decryptedMessage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="showDecryptPossibilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

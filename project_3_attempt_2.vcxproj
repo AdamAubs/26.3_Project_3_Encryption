@@ -140,6 +140,7 @@
     <ClCompile Include="encryptMessageBackward.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="decryptedMessage.cpp" />
+    <ClCompile Include="showDecryptPossibilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="decryptedMessage.h" />
@@ -147,6 +148,7 @@
     <ClInclude Include="encryptMessage.h" />
     <ClInclude Include="encryptionMenu.h" />
     <ClInclude Include="encryptMessageBackward.h" />
+    <ClInclude Include="showDecryptPossibilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

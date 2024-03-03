@@ -46,6 +46,7 @@ std::string encryptMessageForward(EncryptMenu menuOptions)
 	std::vector<int> encryptedIntArr{};
 	int prevShiftVal{};
 	int notLetterCount{};
+	int checkVal;
 	// Iterates through the letterValues 
 	// determines conditions for encryption 
 	// at each index of string
@@ -63,7 +64,18 @@ std::string encryptMessageForward(EncryptMenu menuOptions)
 		if (i == 0)
 		{
 			prevShiftVal = menuOptions.shift;
-			encryptedIntArr.push_back(prevShiftVal + letterValues.at(0));
+
+			int remainder{ ((prevShiftVal + letterValues.at(0)) % 27 + 27) % 27 };
+
+			if ((prevShiftVal + letterValues.at(0)) > 26)
+			{
+				encryptedIntArr.push_back(0 + remainder);
+			}
+			else
+			{
+				encryptedIntArr.push_back(prevShiftVal + letterValues.at(0));
+			}
+			
 		}
 		// all other characters in string
 		else
@@ -81,19 +93,13 @@ std::string encryptMessageForward(EncryptMenu menuOptions)
 				prevShiftVal = encryptedIntArr.at(i - 1) + menuOptions.shift;
 			}
 
-			// check new values over 26
-			if ((prevShiftVal + letterValues.at(i)) > 26)
+			
+			// check values over 26 and get remainder
+			checkVal = ((prevShiftVal + letterValues.at(i)) % 27 + 27) % 27;
+			if (checkVal >= 26 || checkVal <= 26)
 			{
-				// get within range of 0 - 27
-				prevShiftVal = (letterValues.at(i) + prevShiftVal) - 27;
-
-				while (prevShiftVal > 26)
-				{
-					prevShiftVal = prevShiftVal - 27;
-				}
-
-				// add the difference to 0 (i.e A + shift)
-				encryptedIntArr.push_back(0 + prevShiftVal);
+			/*add the remanider to 0 (i.e A + shift)*/
+			encryptedIntArr.push_back(0 + checkVal);
 			}
 			// values within range (0-27)
 			else

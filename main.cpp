@@ -2,7 +2,7 @@
 #include "decryptedMessageBackward.h"
 #include "encryptMessage.h"
 #include "encryptMessageBackward.h"
-//#include "showDecryptedPossibilities"
+#include "showDecryptPossibilities.h"
 
 #include "encryptionMenu.h"
 
@@ -20,15 +20,20 @@ EncryptMenu getChoice(EncryptMenu menuOptions)
 	std::cout << "2. Decrypt message\n";
 	std::cout << "3. Show decrypted possibilities\n";
 	std::cout << "4. Break code\n";
-
+	
 	std::cout << "Enter choice: ";
 	std::cin >> menuOptions.choice;
-	std::cout << "Enter shift (1-26): ";
-	std::cin >> menuOptions.shift;
-	std::cout << "Enter direction (f or b): ";
-	std::cin >> menuOptions.direction;
+	if (menuOptions.choice == 1 || menuOptions.choice == 2)
+	{
+		std::cout << "Enter shift (1-26): ";
+		std::cin >> menuOptions.shift;
+		std::cout << "Enter direction (f or b): ";
+		std::cin >> menuOptions.direction;
+	}
+	
 	std::cout << "Enter message: ";
-	std::getline(std::cin >> std::ws, menuOptions.message);
+	std::getline(std::cin, menuOptions.message);
+	std::getline(std::cin, menuOptions.message);
 
 	return menuOptions;
 }
@@ -60,10 +65,10 @@ int main()
 	{
 		std::cout << "Encrypted message: " << encryptMessageBackward(menuChoices) << '\n';
 	}
-	/*else if (menuChoices.choice == 3)
+	else if (menuChoices.choice == 3)
 	{
-		std::cout << showDecryptedPossibilities(menuChoices) << '\n';
-	}*/
+		showDecryptPossibilities(menuChoices);
+	}
 	return 0;
 }
 
