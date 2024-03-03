@@ -1,4 +1,9 @@
-#include "encryption.h"
+#include "decryptedMessage.h"
+#include "decryptedMessageBackward.h"
+#include "encryptMessage.h"
+#include "encryptMessageBackward.h"
+//#include "showDecryptedPossibilities"
+
 #include "encryptionMenu.h"
 
 #include <iostream>
@@ -7,14 +12,8 @@
 #include <algorithm>
 #include <cmath>
 
-std::string encryptMessageForward(EncryptMenu menuOptions);
-std::string encryptMessageBackward(EncryptMenu menuOptions);
 
-std::string decryptedMessage(EncryptMenu menuOptions);
-std::string decryptedMessageBackward(EncryptMenu menuOptions);
-
-std::string showDecryptedPossibilities(menuChoices);
-
+// print menu with choices
 EncryptMenu getChoice(EncryptMenu menuOptions)
 {
 	std::cout << "1. Encrypt message\n";
@@ -36,83 +35,35 @@ EncryptMenu getChoice(EncryptMenu menuOptions)
 
 int main()
 {
+	// initialize menuOptions obj to acess choice, shift, direction, message
 	EncryptMenu menuOptions{ };
 
 	EncryptMenu menuChoices = getChoice(menuOptions);
 
-
+	// Decrypt forward
 	if (menuChoices.choice == 2 && menuChoices.direction == 'f')
 	{
-		std::cout << decryptedMessage(menuChoices) << '\n';
-	} else if (menuChoices.choice == 2 && menuChoices.direction == 'b')
+		std::cout << "Decrypted message: " << decryptedMessage(menuChoices) << '\n';
+	} 
+	// Decrypt backward
+	else if (menuChoices.choice == 2 && menuChoices.direction == 'b')
 	{
-		std::cout << decryptedMessageBackward(menuChoices) << '\n';
+		std::cout << "Decrypted message: " << decryptedMessageBackward(menuChoices) << '\n';
 	}
+	// Encrypt forward
 	else if (menuChoices.choice == 1 && menuChoices.direction == 'f')
 	{
-		std::cout << encryptMessageForward(menuChoices) << '\n';
+		std::cout << "Encrypted message: " << encryptMessageForward(menuChoices) << '\n';
 	}
+	// Encrypt backward
 	else if (menuChoices.choice == 1 && menuChoices.direction == 'b')
 	{
-		std::cout << encryptMessageBackward(menuChoices) << '\n';
+		std::cout << "Encrypted message: " << encryptMessageBackward(menuChoices) << '\n';
 	}
-	else if (menuChoices.choice == 3)
+	/*else if (menuChoices.choice == 3)
 	{
 		std::cout << showDecryptedPossibilities(menuChoices) << '\n';
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	}*/
 	return 0;
 }
 

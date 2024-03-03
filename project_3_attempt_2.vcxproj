@@ -136,7 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="decryptedMessageBackward.cpp" />
-    <ClCompile Include="encryption.cpp" />
+    <ClCompile Include="encryptMessage.cpp" />
     <ClCompile Include="encryptMessageBackward.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="decryptedMessage.cpp" />
@@ -144,10 +144,9 @@
   <ItemGroup>
     <ClInclude Include="decryptedMessage.h" />
     <ClInclude Include="decryptedMessageBackward.h" />
-    <ClInclude Include="encryption.h" />
+    <ClInclude Include="encryptMessage.h" />
     <ClInclude Include="encryptionMenu.h" />
     <ClInclude Include="encryptMessageBackward.h" />
-    <ClInclude Include="showDecryptedPossibilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

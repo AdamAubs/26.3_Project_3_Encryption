@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="encryption.cpp">
+    <ClCompile Include="encryptMessage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="encryptMessageBackward.cpp">
@@ -32,7 +32,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="encryption.h">
+    <ClInclude Include="encryptMessage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="encryptionMenu.h">
@@ -45,9 +45,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="decryptedMessage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="showDecryptedPossibilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
