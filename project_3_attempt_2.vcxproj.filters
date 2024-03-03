@@ -18,13 +18,13 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="encryptMessage.cpp">
+    <ClCompile Include="encryptMessageForward.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="encryptMessageBackward.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="decryptedMessage.cpp">
+    <ClCompile Include="decryptedMessageForward.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="decryptedMessageBackward.cpp">
@@ -35,7 +35,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="encryptMessage.h">
+    <ClInclude Include="encryptMessageForward.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="encryptionMenu.h">
@@ -47,7 +47,7 @@
     <ClInclude Include="decryptedMessageBackward.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="decryptedMessage.h">
+    <ClInclude Include="decryptedMessageForward.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="showDecryptPossibilities.h">

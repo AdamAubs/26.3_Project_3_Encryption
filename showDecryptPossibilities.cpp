@@ -1,5 +1,5 @@
 #include "showDecryptPossibilities.h"
-#include "decryptedMessage.h"
+#include "decryptedMessageForward.h"
 #include "decryptedMessageBackward.h"
 
 #include <iostream>

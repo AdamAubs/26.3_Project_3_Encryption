@@ -1,6 +1,6 @@
-#include "decryptedMessage.h"
+#include "decryptedMessageForward.h"
 #include "decryptedMessageBackward.h"
-#include "encryptMessage.h"
+#include "encryptMessageForward.h"
 #include "encryptMessageBackward.h"
 #include "showDecryptPossibilities.h"
 

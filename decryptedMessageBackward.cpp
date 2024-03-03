@@ -20,8 +20,8 @@ std::string decryptedMessageBackward(EncryptMenu menuOptions)
 	/*std::vector<int> alphabet = { 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 32 };*/
 
 	// store the none letter value and position for replacemnt after changing.
-	int saveNoneLetterValue{};
-	int saveNoneLetterPosition{};
+	/*int saveNoneLetterValue{};
+	int saveNoneLetterPosition{};*/
 
 	// iterates through the original message 
 	// and transforms char values from (65-90)
@@ -41,40 +41,15 @@ std::string decryptedMessageBackward(EncryptMenu menuOptions)
 		{
 			letterValues.push_back(static_cast<int>(messageArr.at(i) - 65));
 		}
-
-		// store the none letters position and character for after manipulation to string
-		if (letterValues.at(i) > 27 || letterValues.at(i) < 0)
-		{
-			saveNoneLetterValue = letterValues.at(i);
-			saveNoneLetterPosition = static_cast<int>(i);
-			/*std::cout << "None letter position: " << saveNoneLetterPosition << "None letter value: " << saveNoneLetterValue << '\n';*/
-		}
 	}
 
-	// find the none letter value in the letterValues array
-	auto theValue = std::find(letterValues.begin(), letterValues.end(), saveNoneLetterValue);
-
-	// iterate through and erase it
-	if (theValue != letterValues.end())
-	{
-		// Erase the element
-		letterValues.erase(theValue);
-	}
-
-	// reverse the letterValues array for backward decryption, opposite of encryption (i.e reversing last)
-	for (unsigned i = 0; i < (letterValues.size() - 1) / 2; ++i)
-	{
-		int temp = letterValues.at(i);
-		letterValues.at(i) = letterValues.at(letterValues.size() - i - 1);
-		letterValues.at(letterValues.size() - i - 1) = temp;
-	}
-
-	// insert back in the non-letter
-	letterValues.insert(letterValues.begin() + saveNoneLetterPosition + 1, saveNoneLetterValue);
+	// reverse inuputed string
+	std::reverse(letterValues.begin(), letterValues.end());
 
 	std::vector<int> encryptedIntArr{};
 	int prevShiftVal{};
 	int notLetterCount{};
+	int remainder{};
 	// Iterates through the letterValues 
 	// determines conditions for decrption 
 	// at each index of string
@@ -88,22 +63,51 @@ std::string decryptedMessageBackward(EncryptMenu menuOptions)
 			continue;
 		}
 
-		// for the first index only shift forward by inputed shift
+		// for the first index only shift back by inputed shift
 		if (i == 0)
 		{
 			prevShiftVal = menuOptions.shift;
-			encryptedIntArr.push_back(letterValues.at(0) - prevShiftVal);
+
+			remainder = ((letterValues.at(0) - prevShiftVal) % 27 + 27) % 27;
+
+			if ((letterValues.at(0) - prevShiftVal) < 0)
+			{
+				encryptedIntArr.push_back(remainder);
+			}
+			else
+			{
+				encryptedIntArr.push_back(letterValues.at(0) - prevShiftVal);
+			}
+			notLetterCount = 0;
 		}
-		// all other characters in string
-		else
+		// check for non-letters at beginning index
+		else if (i - notLetterCount == 0)
 		{
+			prevShiftVal = menuOptions.shift;
+
+			remainder = ((letterValues.at(i) - prevShiftVal) % 27 + 27) % 27;
+
+			if ((letterValues.at(i) - prevShiftVal) < 0)
+			{
+				encryptedIntArr.push_back(remainder);
+			}
+			else
+			{
+				encryptedIntArr.push_back(letterValues.at(i) - prevShiftVal);
+			}
+
+			notLetterCount = 0;
+		}
+		else // all other characters in string
+		{
+
 			// their was not a letter (i.e .,/+= )
 			// get shift from letter before non-letter character
 			// and shift inputed amount
 			if (notLetterCount > 0)
 			{
 				prevShiftVal += encryptedIntArr.at(i - notLetterCount - 1) + menuOptions.shift;
-				/*std::cout << "PrevshiftVal1: " << prevShiftVal << '\n';*/
+				/*std::cout << "PrevshiftVal 1: " << prevShiftVal << '\n';*/
 				notLetterCount = 0;
 			}
 			else // proced to follow inputed shift pattern for value before
@@ -111,36 +115,9 @@ std::string decryptedMessageBackward(EncryptMenu menuOptions)
 				prevShiftVal += encryptedIntArr.at(i - 1) + menuOptions.shift;
 			}
 
-			// check shift over 27
-			if ((prevShiftVal) > 27)
-			{
-				// get shift within valid range
-				prevShiftVal = prevShiftVal - 27;
-
-				while (prevShiftVal > 26)
-				{
-					prevShiftVal = prevShiftVal - 27;
-				}
-
-				// negative values
-				if ((letterValues.at(i) - prevShiftVal) < 0)
-				{
-					encryptedIntArr.push_back(27 + letterValues.at(i) - prevShiftVal);
-				}
-				else // normal values between range (0-27)
-				{
-					encryptedIntArr.push_back(letterValues.at(i) - prevShiftVal);
-				}
-			}
-			// negative values
-			else if ((letterValues.at(i) - prevShiftVal) < 0)
-			{
-				encryptedIntArr.push_back(27 + letterValues.at(i) - prevShiftVal);
-			}
-			else // normal values(0 - 27)
-			{
-				encryptedIntArr.push_back(abs(letterValues.at(i) - prevShiftVal));
-			}
+			// put values in range (0-26)
+			remainder = ((letterValues.at(i) - prevShiftVal) % 27 + 27) % 27;
+			encryptedIntArr.push_back(0 + remainder);
 
 		}
 		/*std::cout << encryptedIntArr.at(i) << " " << '\n';*/
