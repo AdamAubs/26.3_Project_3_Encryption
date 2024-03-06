@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="breakTheCode.cpp" />
     <ClCompile Include="decryptedMessageBackward.cpp" />
     <ClCompile Include="encryptMessageForward.cpp" />
     <ClCompile Include="encryptMessageBackward.cpp" />
@@ -143,6 +144,7 @@
     <ClCompile Include="showDecryptPossibilities.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="breakTheCode.h" />
     <ClInclude Include="decryptedMessageForward.h" />
     <ClInclude Include="decryptedMessageBackward.h" />
     <ClInclude Include="encryptMessageForward.h" />

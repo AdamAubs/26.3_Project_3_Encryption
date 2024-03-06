@@ -51,7 +51,7 @@ std::string decryptedMessageBackward(EncryptMenu menuOptions)
 	int notLetterCount{};
 	int remainder{};
 	// Iterates through the letterValues 
-	// determines conditions for decrption 
+	// determines conditions for decryption 
 	// at each index of string
 	for (unsigned i = 0; i < letterValues.size(); ++i)
 	{

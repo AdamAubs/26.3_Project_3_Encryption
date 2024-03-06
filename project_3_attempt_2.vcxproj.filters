@@ -33,11 +33,11 @@
     <ClCompile Include="showDecryptPossibilities.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="breakTheCode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="encryptMessageForward.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="encryptionMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -51,6 +51,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="showDecryptPossibilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="breakTheCode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="encryptMessageForward.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

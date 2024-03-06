@@ -3,7 +3,7 @@
 #include "encryptMessageForward.h"
 #include "encryptMessageBackward.h"
 #include "showDecryptPossibilities.h"
-
+#include "breakTheCode.h"
 #include "encryptionMenu.h"
 
 #include <iostream>
@@ -69,6 +69,11 @@ int main()
 	{
 		showDecryptPossibilities(menuChoices);
 	}
+	else if(menuChoices.choice == 4)
+	{
+		tryAllPossibilities(menuChoices);
+	}
+
 	return 0;
 }
 

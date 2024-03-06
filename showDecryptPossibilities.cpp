@@ -12,4 +12,6 @@ void showDecryptPossibilities(EncryptMenu menuOptions)
 		std::cout << i << "f: " << decryptedMessage(menuOptions) << '\n';
 		std::cout << i << "b: " << decryptedMessageBackward(menuOptions) << '\n';
 	}
+
+	
 }
